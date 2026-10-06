@@ -1,0 +1,5 @@
+/target
+*.wal
+/data
+*.log
+.env
