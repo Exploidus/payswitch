@@ -1,0 +1,42 @@
+[package]
+name = "payswitch"
+version = "0.1.0"
+edition = "2021"
+authors = ["Rahad Bhuiya <rahadbhuiya2021@gmail.com>"]
+description = "Deterministic, sub-millisecond cross-border financial switching and double-entry settlement engine in Rust"
+license = "AGPL-3.0-or-later"
+repository = "https://github.com/Exploidus/payswitch"
+readme = "README.md"
+keywords = ["fintech", "payment-gateway", "ledger", "settlement", "cross-border"]
+categories = ["financial", "network-programming"]
+
+[dependencies]
+tokio = { version = "1.38", features = ["full"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+uuid = { version = "1.8", features = ["v4", "serde"] }
+chrono = { version = "0.4", features = ["serde"] }
+thiserror = "1.0"
+sha2 = "0.10"
+crc32fast = "1.4"
+parking_lot = "0.12"
+tracing = "0.1"
+tracing-subscriber = "0.3"
+axum = { version = "0.7", features = ["json"] }
+tower = { version = "0.4", features = ["util"] }
+tower-http = { version = "0.5", features = ["trace", "cors"] }
+
+[dev-dependencies]
+criterion = "0.5"
+
+[lib]
+name = "payswitch"
+path = "src/lib.rs"
+
+[[bin]]
+name = "payswitch-node"
+path = "src/main.rs"
+
+[[bench]]
+name = "engine_throughput"
+harness = false
