@@ -1,0 +1,21 @@
+version: "3.8"
+
+services:
+  payswitch:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: payswitch-node
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    environment:
+      - PORT=8080
+      - PAYSWITCH_WAL_PATH=/home/payswitch/data/payswitch.wal
+      - RUST_LOG=info
+    volumes:
+      - payswitch-wal:/home/payswitch/data
+
+volumes:
+  payswitch-wal:
+    driver: local
