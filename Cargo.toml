@@ -8,7 +8,7 @@ license = "AGPL-3.0-or-later"
 repository = "https://github.com/Exploidus/payswitch"
 readme = "README.md"
 keywords = ["fintech", "payment-gateway", "ledger", "settlement", "cross-border"]
-categories = ["financial", "network-programming"]
+categories = ["network-programming", "cryptography", "database-implementations"]
 
 [dependencies]
 tokio = { version = "1.38", features = ["full"] }
